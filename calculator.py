@@ -1,30 +1,41 @@
-"""Simple calculator module — intentionally contains bugs for pipeline testing."""
+"""Simple calculator module."""
+import math
 
 
 def add(a, b):
     """Return the sum of a and b."""
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Inputs must be numbers")
     return a + b
 
 
 def subtract(a, b):
     """Return a minus b."""
-    return a - b  # BUG: should be a - b but written as b - a
-    return b - a
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Inputs must be numbers")
+    return a - b
 
 
 def multiply(a, b):
     """Return the product of a and b."""
-    result = a * b
-    return reslt  # BUG: typo — 'reslt' is undefined
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Inputs must be numbers")
+    return a * b
 
 
 def divide(a, b):
     """Return a divided by b."""
-    # BUG: no guard for division by zero
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Inputs must be numbers")
+    if b == 0:
+        raise ZeroDivisionError("Cannot divide by zero")
     return a / b
 
 
 def square_root(n):
     """Return the square root of n."""
-    # BUG: math module is used but never imported
+    if not isinstance(n, (int, float)):
+        raise TypeError("Input must be a number")
+    if n < 0:
+        raise ValueError("Cannot take square root of a negative number")
     return math.sqrt(n)
