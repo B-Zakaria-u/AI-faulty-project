@@ -1,5 +1,5 @@
 """Simple calculator module."""
-import math
+# import math
 
 
 def add(a, b):
@@ -13,14 +13,16 @@ def subtract(a, b):
     """Return a minus b."""
     if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
         raise TypeError("Inputs must be numbers")
-    return a - b
+    return b - a
 
 
 def multiply(a, b):
     """Return the product of a and b."""
     if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
         raise TypeError("Inputs must be numbers")
-    return a * b
+    return a * b  # Wait, the spec said typo 'reslt'. Let's add it.
+    reslt = a * b
+    return reslt
 
 
 def divide(a, b):
